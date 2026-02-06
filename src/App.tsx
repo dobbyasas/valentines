@@ -1,9 +1,8 @@
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import YesGate from "./components/YesGate";
-import ClueCard from "./components/ClueCard";
 import ClueTimeline from "./components/ClueTimeline";
 import { CLUES } from "./data/clues";
-import { todayInPragueISO, isUnlocked } from "./utils/time";
+import { todayInPragueISO } from "./utils/time";
 
 const LS_KEY = "valentine_yes_v1";
 
@@ -16,13 +15,6 @@ export default function App() {
   }, []);
 
   const todayISO = todayInPragueISO();
-
-  const unlocked = useMemo(
-    () => CLUES.filter((c) => isUnlocked(c.unlockOn, todayISO)),
-    [todayISO]
-  );
-
-  const latest = unlocked[unlocked.length - 1] ?? null;
 
   return (
     <div className="page">
@@ -45,13 +37,10 @@ export default function App() {
               <p className="subtitle">Come back each day for a new clue.</p>
             </div>
 
-            {latest && <ClueCard clue={latest} />}
-
             <div className="card">
               <h2 className="cardTitle">Clue timeline</h2>
               <ClueTimeline clues={CLUES} todayISO={todayISO} />
             </div>
-
           </div>
         )}
       </div>
