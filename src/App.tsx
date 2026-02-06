@@ -32,11 +32,6 @@ export default function App() {
 
   const latest = unlocked[unlocked.length - 1] ?? null;
 
-  function shiftDays(days: number) {
-    const base = new Date((testDate ?? realToday) + "T12:00:00");
-    base.setDate(base.getDate() + days);
-    setTestDate(base.toISOString().slice(0, 10));
-  }
 
   return (
     <div className="page">
