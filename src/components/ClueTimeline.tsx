@@ -8,23 +8,25 @@ type Props = {
 
 const LS_OPENED = "valentine_opened_clues_v1";
 
-function loadOpened(): Record<string, true> {
+type OpenedMap = Record<string, boolean>;
+
+function loadOpened(): OpenedMap {
   try {
     const raw = localStorage.getItem(LS_OPENED);
     if (!raw) return {};
-    const parsed = JSON.parse(raw) as Record<string, true>;
+    const parsed = JSON.parse(raw) as OpenedMap;
     return parsed && typeof parsed === "object" ? parsed : {};
   } catch {
     return {};
   }
 }
 
-function saveOpened(map: Record<string, true>) {
+function saveOpened(map: OpenedMap) {
   localStorage.setItem(LS_OPENED, JSON.stringify(map));
 }
 
 export default function ClueTimeline({ clues, todayISO }: Props) {
-  const [opened, setOpened] = useState<Record<string, true>>({});
+  const [opened, setOpened] = useState<OpenedMap>({});
 
   useEffect(() => {
     setOpened(loadOpened());
@@ -41,7 +43,7 @@ export default function ClueTimeline({ clues, todayISO }: Props) {
 
     setOpened((prev) => {
       if (prev[clue.id]) return prev;
-      const next = { ...prev, [clue.id]: true };
+      const next: OpenedMap = { ...prev, [clue.id]: true };
       saveOpened(next);
       return next;
     });
@@ -83,25 +85,25 @@ export default function ClueTimeline({ clues, todayISO }: Props) {
                 {unlocked && isOpen && "Opened"}
               </div>
 
-              {/* Reveal area (animated) */}
-                <div className="revealWrap" data-open={isOpen ? "1" : "0"}>
+              {/* Letter opening animation area */}
+              <div className="revealWrap" data-open={isOpen ? "1" : "0"}>
                 <div className="envelope" aria-hidden="true" />
                 <div className="letter" aria-hidden="true" />
+
                 <div className="letterPaper">
-                    {c.type === "text" && <p className="tlClueText">{c.content}</p>}
+                  {c.type === "text" && <p className="tlClueText">{c.content}</p>}
 
-                    {c.type === "image" && (
+                  {c.type === "image" && (
                     <img src={c.content} alt={c.title} className="tlClueImage" />
-                    )}
+                  )}
 
-                    {c.type === "audio" && (
+                  {c.type === "audio" && (
                     <audio controls src={c.content} className="tlClueAudio" />
-                    )}
+                  )}
 
-                    {c.note && <p className="tlClueNote">{c.note}</p>}
+                  {c.note && <p className="tlClueNote">{c.note}</p>}
                 </div>
-                </div>
-
+              </div>
             </div>
           </button>
         );
