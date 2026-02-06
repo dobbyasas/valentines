@@ -52,17 +52,6 @@ export default function App() {
               <ClueTimeline clues={CLUES} todayISO={todayISO} />
             </div>
 
-            <div className="footer">
-              <button
-                className="btn ghost"
-                onClick={() => {
-                  localStorage.removeItem(LS_KEY);
-                  location.reload();
-                }}
-              >
-                Reset whole page
-              </button>
-            </div>
           </div>
         )}
       </div>
