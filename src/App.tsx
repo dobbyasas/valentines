@@ -72,38 +72,6 @@ export default function App() {
               <ClueTimeline clues={CLUES} todayISO={todayISO} />
             </div>
 
-            {/* TESTING PANEL */}
-            <div className="card">
-              <h3>Testing tools (only you see this)</h3>
-
-              <div className="btnRow">
-                <button className="btn" onClick={() => shiftDays(-1)}>
-                  ◀ Back 1 day
-                </button>
-
-                <button className="btn" onClick={() => shiftDays(1)}>
-                  Forward 1 day ▶
-                </button>
-
-                <button
-                  className="btn primary"
-                  onClick={() => setTestDate("2026-02-20")}
-                >
-                  Unlock ALL clues
-                </button>
-
-                <button
-                  className="btn ghost"
-                  onClick={() => setTestDate(null)}
-                >
-                  Reset to real date
-                </button>
-              </div>
-
-              <p className="tiny">
-                Current test date: {todayISO}
-              </p>
-            </div>
 
             <div className="footer">
               <button
