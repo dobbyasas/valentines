@@ -37,8 +37,8 @@ export const CLUES: Clue[] = [
     title: "BONUS",
     type: "image",
     content: "/placeholders/me.jpeg",
-    text: "This guy likes you a lot. Enjoy. Also how the fuck is it possible that you are this beutiful. Melts my heart every time I see you.",
-    note: "🙂",
+    text: "This guy likes you a lot. Enjoy. ",
+    note: "Also how the fuck is it possible that you are this beutiful. Melts my heart every time I see you.",
   },
 
   {
