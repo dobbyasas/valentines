@@ -592,3 +592,29 @@ body{
   font-size: 13px;
   color: var(--muted);
 }
+
+.clueTextAfterMedia{
+  margin-top: 12px;
+}
+
+/* --- FIX: ensure actual clue content is above the animated letter --- */
+.revealWrap{
+  position: relative;
+}
+
+.envelope{
+  position: relative;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.letter{
+  z-index: 2;
+  pointer-events: none;
+}
+
+/* the real content should be on top */
+.letterPaper{
+  position: relative;
+  z-index: 3;
+}

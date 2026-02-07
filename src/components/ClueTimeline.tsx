@@ -91,14 +91,23 @@ export default function ClueTimeline({ clues, todayISO }: Props) {
                 <div className="letter" aria-hidden="true" />
 
                 <div className="letterPaper">
+                  {/* TEXT clue */}
                   {c.type === "text" && <p className="tlClueText">{c.content}</p>}
 
+                  {/* IMAGE clue */}
                   {c.type === "image" && (
-                    <img src={c.content} alt={c.title} className="tlClueImage" />
+                    <>
+                      {c.text && <p className="tlClueText">{c.text}</p>}
+                      <img src={c.content} alt={c.title} className="tlClueImage" />
+                    </>
                   )}
 
+                  {/* AUDIO clue */}
                   {c.type === "audio" && (
-                    <audio controls src={c.content} className="tlClueAudio" />
+                    <>
+                      {c.text && <p className="tlClueText">{c.text}</p>}
+                      <audio controls src={c.content} className="tlClueAudio" />
+                    </>
                   )}
 
                   {c.note && <p className="tlClueNote">{c.note}</p>}

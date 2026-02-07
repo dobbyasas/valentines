@@ -15,15 +15,21 @@ export default function ClueCard({ clue }: Props) {
       {clue.type === "text" && <p className="clueText">{clue.content}</p>}
 
       {clue.type === "image" && (
-        <div className="mediaWrap">
-          <img className="media" src={clue.content} alt={clue.title} />
-        </div>
+        <>
+          <div className="mediaWrap">
+            <img className="media" src={clue.content} alt={clue.title} />
+          </div>
+          {clue.text && <p className="clueText clueTextAfterMedia">{clue.text}</p>}
+        </>
       )}
 
       {clue.type === "audio" && (
-        <div className="mediaWrap">
-          <audio className="audio" controls src={clue.content} />
-        </div>
+        <>
+          <div className="mediaWrap">
+            <audio className="audio" controls src={clue.content} />
+          </div>
+          {clue.text && <p className="clueText clueTextAfterMedia">{clue.text}</p>}
+        </>
       )}
 
       {clue.note && <p className="note">{clue.note}</p>}
