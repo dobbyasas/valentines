@@ -47,7 +47,7 @@ export const CLUES: Clue[] = [
     title: "Clue #3",
     type: "image",
     content: "/placeholders/dress.jpg",
-    text: "Dress code: something you feel confident in. (Not overdressed. Just you.)",
+    text: "Dress code: something you feel confident in. (Not overdressed. But still elegant!)",
   },
 
   {
