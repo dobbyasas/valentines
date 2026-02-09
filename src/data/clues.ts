@@ -56,10 +56,15 @@ export const CLUES: Clue[] = [
     title: "Clue #4",
     type: "text",
     content: "No playlists. Live music.",
-  },
-
-  {
+  },{ 
     id: "c6",
+    unlockOn: "2026-02-09",
+    title: "little bonus",
+    type: "text",
+    content: "Im falling for you more and more very day.",
+  },
+  {
+    id: "c7",
     unlockOn: "2026-02-10",
     title: "Clue #5",
     type: "text",
@@ -68,7 +73,7 @@ export const CLUES: Clue[] = [
   },
 
   {
-    id: "c7",
+    id: "c8",
     unlockOn: "2026-02-11",
     title: "Clue #6",
     type: "text",
@@ -77,7 +82,7 @@ export const CLUES: Clue[] = [
   },
 
   {
-    id: "c8",
+    id: "c9",
     unlockOn: "2026-02-12",
     title: "Clue #7",
     type: "text",
@@ -86,7 +91,7 @@ export const CLUES: Clue[] = [
   },
 
   {
-    id: "c9",
+    id: "c10",
     unlockOn: "2026-02-13",
     title: "Clue #8",
     type: "image",
@@ -95,7 +100,7 @@ export const CLUES: Clue[] = [
   },
 
   {
-    id: "c10",
+    id: "c11",
     unlockOn: "2026-02-14",
     title: "Clue #9",
     type: "image",
